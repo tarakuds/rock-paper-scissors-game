@@ -12,13 +12,26 @@ lose =  "You LOSE"
 # if choices = "R";
 #     value = "Rock"
 
-while Player not in choices:
- # print("Wrong, you have to make a valid response. These are the rules Of the game, R = Rock, P = Paper, S = Scissors. You can only make one choice.")
-    Player = input("What do you choose? R,P or S :- ").upper()
+while player not in choices:
+    print("Wrong, you have to make a valid response. These are the rules Of the game, R = Rock, P = Paper, S = Scissors. You can only make one choice.")
+    player = input("What do you choose? R,P or S :- ").upper()
 
 print("Player - ", player, "CPU - ", computer)
 if player == computer:
     print(tie)
+    retry = input("Will You like to play again? Yes / No ? ").lower()
+    if retry == "yes":
+        player = input("What do you choose? R,P or S :- ").upper()
+        ######################
+        if player == computer:
+            print(tie)
+            retry = input("Will You like to play again? Yes / No ? ").lower()
+        elif retry == "no":
+            player = input("Thank you")
+        ########################
+    elif retry == "no":
+        print('Thank you')
+
 elif player == "R":
     if computer == "S":
         print(win)
@@ -34,4 +47,5 @@ elif player == "P":
         print(win)
     if computer == "S":
         print(lose)
+
 
